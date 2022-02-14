@@ -1,0 +1,155 @@
+:root {
+  --primary: #1E1F29;
+  --secondary: #2f3040;
+  --tertiary: #37394b;
+  --input: #474a62;
+  --accent: #474a62;
+  --link: #a0a2ba;
+  --selection: #68818f;
+
+  --warning: #d18787;
+  --warning-dark: #772f2f;
+
+  --text: #eee;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--primary);
+  color: var(--text);
+  font-family: 'Lexend', 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: initial;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: solid 2px transparent;
+  transition: border ease 0.1s;
+
+  &:hover {
+    border-color: currentColor;
+  }
+}
+
+button {
+  cursor: pointer;
+  background: var(--link);
+  border: none;
+  padding: 0.5em;
+  border-radius: 0.25em;
+  transition: filter ease 0.1s;
+
+  &.danger, &[type="reset"] {
+    background: var(--warning);
+    // color: var(--text);
+  }
+
+  &:hover {
+    filter: brightness(1.3);
+  }
+}
+
+input[type=text], input[type=number], input[type=time], select, textarea {
+  background: var(--input);
+  color: var(--text);
+  padding: 0.5em;
+  border: none;
+  border-radius: 0.25em;
+
+  &::placeholder {
+    color: var(--link);
+  }
+}
+
+::-webkit-calendar-picker-indicator {
+  height: 0.8em;
+}
+
+textarea {
+  min-height: 10em;
+  min-width: 30em;
+}
+
+dialog {
+  color: var(--text);
+  background-color: var(--secondary);
+  border: 1px solid var(--tertiary);
+  border-radius: 0.25em;
+
+  &::backdrop {
+    background: #1E1F29EE;
+  }
+}
+
+table {
+  border: 1px solid var(--accent);
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 2em;
+  width: 100%;
+
+  thead, tfoot {
+    background-color: var(--tertiary);
+    text-align: left;
+  }
+
+  tr {
+    &:nth-child(2n) {
+      background-color: var(--secondary);
+    }
+  }
+
+  th, td {
+    padding: 0.5em;
+    text-align: left;
+    font-weight: normal;
+  }
+}
+
+::selection {
+  background: var(--selection); /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: var(--selection); /* Gecko Browsers */
+}
+
+
+.italic {
+  font-style: italic;
+}
+
+form {
+  .form-table {
+    display: table;
+    .form-row {
+      display: table-row;
+      label {
+        padding-right: 1em;
+        padding-top: 0.5em;
+      }
+      label, input, textarea {
+        display: table-cell;
+        margin-bottom: 1em;
+        vertical-align: top;
+      }
+      input, textarea {
+        width: 100%;
+      }
+    }
+  }
+
+  .actions {
+    margin-top: 1em;
+    display: flex;
+    gap: 1em;
+    justify-content: right;
+  }
+}
