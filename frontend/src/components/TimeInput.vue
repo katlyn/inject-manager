@@ -23,8 +23,9 @@ export default class TimeInput extends Vue {
   }
 
   set time (v: string) {
-    console.log('a')
-    this.$emit('update:modelValue', moment.tz(v, ['H:m'], this.timezone).toDate())
+    const [hour, min] = v.split(':').map(Number)
+    const time = moment.tz(this.timezone).set('hour', hour).set('minute', min).toDate()
+    this.$emit('update:modelValue', time)
   }
 }
 </script>
