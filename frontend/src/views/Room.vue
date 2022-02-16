@@ -185,9 +185,20 @@ h1, h2, h3, h4, h5 {
   margin: 0.25;
 }
 </style>
+<script>
+Promise.all(Array.from(document.querySelectorAll('img')).map(e => new Promise(res => {
+  const image = new Image()
+  image.onload = res
+  image.onerror = res
+  image.src = e.src
+}))).then(() => {
+  window.print()
+  window.close()
+})
+</` + `script>
     `)
-    w.print()
-    w.close()
+    // w.print()
+    // w.close()
   }
 }
 </script>
